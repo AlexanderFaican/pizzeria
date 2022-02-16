@@ -96,8 +96,8 @@ DATABASES = {
         'NAME':'pizzeria',
         'USER':'eli',
         'PASSWORD':'648862362wilo@',
-        'HOST':'localhost',
-        'PORT':''
+        'HOST':'pizzeria.mysql.database.azure.com',
+        'PORT':'3306'
     }
 }
 
