@@ -1,0 +1,58 @@
+{% extends 'index.html'%}
+
+
+{% block body%}
+
+    <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Horario
+                  <a  href="{% url 'crear_horario' %}"style="color: white; background-color: f68f2c;" class="btn-primary btn-sm" >Registrar Horario
+                    <i class="fas fa-user-plus"></i>
+                  </a>
+
+                </h3>
+            </div>
+        </div>
+        <!-- /.card -->
+
+        <div class="card">
+            <div class="card-header bg-white">
+                <h3 class="card-title">Lista Horario</h3>
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="listaCliente" class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+        <th>Nombre</th>
+        <th>Fecha Inicio</th>
+        <th>Fecha Fin</th>
+        <th>Dia</th>
+        <th>Acciones Horario</th> 
+    </tr>
+    {% for c in lista%} 
+        <tr>
+            
+            <td>{{c.nombre}}</td>
+            <td>{{c.hora_inicio}}</td>
+            <td>{{c.hora_fin}}</td>
+            <td>{{c.dia}}</td>
+            <td><a href="eliminar?id={{c.id}}" style="color: white; background-color: f68f2c;" onclick="return confirm('Esta seguro de eliminar el menu?')" class="btn btn-primary btn-sm">Eliminar </a>
+                <a href="modificar?id={{c.id}}" style="color: white; background-color: f68f2c;" class="btn btn-primary btn-sm"> Modificar</a>
+                </td>
+        </tr>   
+    {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+</div>
+</div>
+{% endblock body%}

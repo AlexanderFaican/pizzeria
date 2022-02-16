@@ -1,0 +1,11 @@
+{% extends 'index.html'%}
+
+{% block body%}
+<form method="POST">{%csrf_token%}
+	{{formularioC}}<br>
+	<button type="submit" >	Modificar</button>
+</form>
+
+       
+ 
+{% endblock body%}

@@ -1,0 +1,16 @@
+{% extends 'index.html'%}
+
+{% block body%}
+
+
+	<form method="POST">{%csrf_token%}
+	{{formularioC}} <br>
+	{{formularioCu}}<br>
+	
+
+	<button type="submit" class="btn btn-primary" >Guardar</button>
+</form>
+
+      
+ 
+{% endblock body%}

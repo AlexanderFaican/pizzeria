@@ -1,0 +1,14 @@
+{% extends 'index.html'%}
+
+{% block title%}
+Iniciar sesion
+{% endblock title%}
+
+{% block body%}
+<form method="POST">{%csrf_token%}
+  {{formulario.as_p}}
+
+  <button type="submit" class="btn btn-primary">Ingresar</button>
+</form>
+
+{% endblock body%}

@@ -1,0 +1,55 @@
+{% extends 'index.html'%}
+
+
+{% block body%}
+
+    <div class="row">
+    <div class="col-12">
+        <!-- /.card -->
+
+        <div class="card">
+            <div class="card-header bg-white">
+                <h3 class="card-title">Lista Pedidos</h3>
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="listaCliente" class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>Fecha de Pedido</th>
+                            <th>Fecha de Entrega</th>
+                            <th>Total de PAgo</th>
+                            <th>Tipo de Pago</th>
+                            <th>Cliente</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+    </tr>
+    {% for c in lista%} 
+        
+
+    <tr> 
+        
+        <td>{{c.fecha_pedido}}</td>
+        <td>{{c.fecha_entrega}}</td>
+        <td>{{c.total}}</td>
+        <td>{{c.pago}}</td>
+        <td>{{c.persona}}</td>
+        <td>{{c.estado}}</td>
+        <td><a href="despachar?id={{c.id}}" style="color: white; background-color: f68f2c;" onclick="return confirm('¿Se cancelo todo el monto total?')"class="btn btn-primary btn-sm">Despachar </a>
+            <td>
+        
+    </tr>	
+    
+{%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+</div>
+</div>
+{% endblock body%}

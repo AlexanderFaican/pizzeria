@@ -1,0 +1,60 @@
+{% extends 'index.html'%}
+
+
+{% block body%}
+
+    <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Menu
+                  <a  href="{% url 'crear_menu' %}" style="color: white; background-color: f68f2c;" class="btn-primary btn-sm" >Registrar Menu
+                    <i class="fas fa-user-plus"></i>
+                  </a>
+
+                </h3>
+            </div>
+        </div>
+        <!-- /.card -->
+
+        <div class="card">
+            <div class="card-header bg-white">
+                <h3 class="card-title">Lista Menu</h3>
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="listaCliente" class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Ingredientes</th>
+        <th>Acciones Menu</th>
+    </tr>
+    {% for c in lista%} 
+        <tr>
+            
+            <td>{{c.codigo}}</td>
+            <td>{{c.nombre}}</td>
+            <td>{{c.precio}}</td>
+            <td>{{c.cantidad}}</td>
+            <td>{{c.ingredientes}}</td>
+            <td><a href="eliminar?id={{c.id}}" style="color: white; background-color: f68f2c;" onclick="return confirm('Esta seguro de eliminar el menu?')" class="btn btn-primary btn-sm">Eliminar </a>
+                <a href="modificar?id={{c.id}}" style="color: white; background-color: f68f2c;" class="btn btn-primary btn-sm"> Modificar</a>
+                </td>
+        </tr>   
+    {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+</div>
+</div>
+{% endblock body%}

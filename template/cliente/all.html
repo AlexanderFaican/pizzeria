@@ -1,0 +1,80 @@
+{% extends 'index.html'%}
+
+
+{% block body%}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#cedula").onclick(function () {
+
+            var valor = $(this).val();
+            if (valor.length > 10) {
+                $("#cedula").val("255");
+            }
+            console.log(valor);
+        });
+
+
+
+    });
+</script>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Cliente
+                    <a href="{% url 'crear_cliente' %}" style="color: white; background-color: f68f2c;"
+                        class="btn-primary btn-sm">Registrar Cliente
+                        <i class="fas fa-user-plus"></i>
+                    </a>
+
+                </h3>
+            </div>
+        </div>
+        <!-- /.card -->
+
+        <div class="card">
+            <div class="card-header bg-white">
+                <h3 class="card-title">Lista Persona</h3>
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="listaCliente" class="table table-bordered table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>C&eacutedula</th>
+                            <th>Nombres</th>
+                            <th>Tel&eacutefono</th>
+                            <th>Celular</th>
+                            <th>Correo</th>
+                            <th>Acciones Cliente</th>
+                        </tr>
+                        {% for c in lista%}
+                        <tr>
+                            <td>{{c.id}}</td>
+                            <td>{{c.cedula}}</td>
+                            <td>{{c.nombre}}</td>
+                            <td>{{c.telefono}}</td>
+                            <td>{{c.celular}}</td>
+                            <td>{{c.correo}}</td>
+                            <td><a href="eliminar?id={{c.id}}" style="color: white; background-color: f68f2c;"
+                                    onclick="return confirm('Esta seguro de eliminar el cliente?')"
+                                    class="btn btn-primary btn-sm">Eliminar </a>
+                                <a href="modificar?id={{c.id}}" style="color: white; background-color: f68f2c;"
+                                    class="btn btn-primary btn-sm"> Modificar</a>
+                            </td>
+                        </tr>
+                        {%endfor%}
+                        </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.col -->
+</div>
+</div>
+{% endblock body%}
