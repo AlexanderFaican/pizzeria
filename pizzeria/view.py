@@ -7,16 +7,12 @@ from .forms import FormularioLogin
 
 
 def ingresar(request):
+    formulario = FormularioLogin(request.POST)
     if request.method == 'POST':
-        formulario = FormularioLogin(request.POST)
         if formulario.is_valid():
-            usuario = request.POST['Nombre']
-            clave = request.POST['Clave']
-            user = authenticate(username=usuario, password=clave)
-            return HttpResponseRedirect(reverse('inicio'))
+         return HttpResponseRedirect(reverse('inicio'))
     else:
-        formulario = FormularioLogin()
-    return render(request, 'login/autenticar.html', {'formulario': formulario})
+        return render(request, 'login/autenticar.html', {'formulario': formulario})
 
 
 def cerrar(request):

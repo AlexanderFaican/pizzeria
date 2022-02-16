@@ -21,7 +21,6 @@ from .import view
 
 urlpatterns = [
     re_path('admin/', admin.site.urls),
-    re_path('', view.ingresar, name='login'),
     re_path('inicio/', view.inicio, name='inicio'),
     re_path('cerrarsesion/', view.cerrar, name='cerrarsesion'),
     re_path('clientes/', include('cliente.urls')),

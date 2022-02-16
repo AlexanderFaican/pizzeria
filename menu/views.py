@@ -1,15 +1,15 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from .forms import FormularioMenu
 from .models import Menu
 def total(request): 
-	print('totallllllllllllllllllllll')
+	
 
 	lista = Menu.objects.all()#elemnto del orm objetss.all oltengo los elementos y los almaceno en lista
 
 	return render (request,'Menu/all.html',{'lista':lista})
-@login_required 
+
 def crear(request):
+	print('totalllllllllllllllllllll-------------22222222')
 	if request.method =='POST':
 		formulario = FormularioMenu(request.POST)
 		if formulario.is_valid():
@@ -25,8 +25,8 @@ def crear(request):
 	else:
 		formularioC = FormularioMenu()
 		context = {'formularioC':formularioC}
-	return render (request,'Menu/crear.html',context)
-@login_required
+	return render (request,'menu/crear.html',context)
+
 def modificar(request):
 	dni = request.GET['id']
 	menu = Menu.objects.get(id = dni)
@@ -48,7 +48,7 @@ def modificar(request):
 	context = {
 		'formularioC': formulario}
 	return render (request,'Menu/modificar.html', context)
-@login_required 
+
 def eliminar(request):
 	idd = request.GET['id']
 	menu = Menu.objects.get(id = idd)

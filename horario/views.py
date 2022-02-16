@@ -1,16 +1,15 @@
 from django.shortcuts import render
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from .forms import FormularioHorario
 from .models import Horario
-@login_required 
+ 
 def total(request): 
 
 	lista = Horario.objects.all()#elemnto del orm objetss.all oltengo los elementos y los almaceno en lista
 
 	return render (request,'horario/all.html',{'lista':lista})
 
-@login_required 
+ 
 def crear(request):
 	if request.method =='POST':
 		formulario = FormularioHorario(request.POST)
@@ -26,7 +25,7 @@ def crear(request):
 		formularioC = FormularioHorario()
 		context = {'formularioC':formularioC}
 	return render (request,'horario/crear.html',context)
-@login_required
+
 def modificar(request):
 	dni = request.GET['id']
 	horario = Horario.objects.get(id = dni)
@@ -46,7 +45,7 @@ def modificar(request):
 	context = {
 		'formularioC': formulario}
 	return render (request,'horario/modificar.html', context)
-@login_required 
+ 
 def eliminar(request):
 	idd = request.GET['id']
 	horario = Horario.objects.get(id = idd)
