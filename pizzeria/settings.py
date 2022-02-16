@@ -28,7 +28,7 @@ SECRET_KEY = 'uo1x)#qh@a=bv6%ak6yi(bbue0d%6(=arhy+09g$6&7^#+uydf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pizzeriaeli.azurewebsites.net']
+ALLOWED_HOSTS = ['pizzeriaeli.azurewebsites.net','*']
 
 
 # Application definition
@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'horario',
     'menu',
     'pedido',
-    'api',
     'rest_framework',
     'rest_framework.authtoken'
 ]
@@ -97,7 +96,7 @@ DATABASES = {
         'USER':'eli',
         'PASSWORD':'648862362wilo@',
         'HOST':'pizzeria.mysql.database.azure.com',
-        'PORT':'3306'
+        'PORT':'3306',
     }
 }
 

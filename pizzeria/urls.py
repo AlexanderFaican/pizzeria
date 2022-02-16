@@ -27,8 +27,7 @@ urlpatterns = [
     re_path('clientes/', include('cliente.urls')),
     re_path('menus/', include('menu.urls')),
     re_path('horarios/', include('horario.urls')),
-    re_path('pedidos/', include('pedido.urls')),
-    re_path('api/', include('api.urls'))
+    re_path('pedidos/', include('pedido.urls'))
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
