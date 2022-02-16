@@ -28,7 +28,7 @@ SECRET_KEY = 'uo1x)#qh@a=bv6%ak6yi(bbue0d%6(=arhy+09g$6&7^#+uydf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pizzeriaeli.azurewebsites.net']
 
 
 # Application definition
@@ -94,8 +94,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME':'pizzeria',
-        'USER':'root',
-        'PASSWORD':'',
+        'USER':'eli',
+        'PASSWORD':'648862362wilo@',
         'HOST':'localhost',
         'PORT':''
     }
